@@ -6,6 +6,7 @@ Show some of the generic font families: serif, sans-serif, monospace, cursive, a
 */
 .title {
     font-family: serif;
+    color: red;
 }
 
 /* Make the body tag have light gray background */
@@ -14,6 +15,14 @@ body {
 }
 
 /* Use the compound class selector for div red-border white-background */
+.red-border {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.white-background {
+    background-color: aqua;
+}
+
 .red-border.white-background {
     border: 1px solid red;
     background-color: white;
@@ -35,7 +44,7 @@ li:not(.selected) {
 }
 
 /* Adjacent sibling selector */
-li.selected + li.selected {
+li.selected + li.selected + li.selected{
     color: red;
 }
 
@@ -45,19 +54,20 @@ button:hover {
 }
 
 /* Which one has more specificity id or tag + class */
-div.a-div {
+div.a-div.ball {
     width: 100px;
     height: 100px;
-    background-color: blue;
+    background-color: red;
     border-radius: 50%;
 }
 
 #a-div {
     width: 100px;
     height: 100px;
-    background-color: red;
+    background-color: blue;
     border-radius: 50%;
 }
+
 
 
 /* 
@@ -68,15 +78,15 @@ text transform uppercase
 */
 
 
-h2 {
+h2.title {
     font-size: 5rem;
     font-weight: bold;
-    color: rgba(0,0,0, .8);
+    color: rgba(0, 0, 255, .5);
     text-transform: uppercase;
 }
 
 h3 {
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: bold;
     color: rgba(0,0,0, .5);
     text-transform: capitalize;
