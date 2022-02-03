@@ -26,22 +26,18 @@ body {
     align-items: center;
 }
 
-#alone {
-    background-color: white;
-    border: white;
-    position: relative;
-    right: -63px;
-}
-
 .box {
     background-color: white;
     width: 80%;
     height: 500px;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
     flex-direction: row;
     margin: 50px;
+    flex-wrap: wrap;
+    width: 200px;
     /* gap: 30px; */
 }
 

@@ -14,7 +14,11 @@ nav > ul {
     padding: 0;
     gap: 10px;
 }
-
+@media screen and (max-width: 800px) and (min-width: 601px){
+    h1 {
+        background-color: red;
+    }
+}
 @media screen and (max-width: 600px) {
     nav > ul {
         flex-direction: column;
