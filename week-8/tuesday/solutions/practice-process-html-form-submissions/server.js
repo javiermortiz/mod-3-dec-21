@@ -108,6 +108,7 @@ const server = http.createServer((req, res) => {
 
     //!!START
     if (req.method === "POST" && req.url === "/cat") {
+      console.log(req.body);
       const { name, pattern, size, description } = req.body;
 
       cat = new Cat({ name, pattern, size, description });
