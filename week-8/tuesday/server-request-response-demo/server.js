@@ -14,9 +14,14 @@ const server = http.createServer((req, res) => {
 
     if (req.method === "GET" && req.url === "/tasks") {
         const htmlPage = fs.readFileSync("tasks.html", "utf-8");
+        console.log(database);
+        const tasksList = database.map(task => {
+            return `<li>${task.tasks} - ${task.time}</li>`;
+        });
+        const resBody = htmlPage.replace(/#{tasks}/g, tasksList.join(''));
         res.statusCode = 200;
         res.setHeader("Content-Type", "text/html");
-        return res.end(htmlPage);
+        return res.end(resBody);
     }
     
     if (req.method === "GET" && req.url === "/main.css") {
