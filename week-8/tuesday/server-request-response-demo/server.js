@@ -16,7 +16,24 @@ const server = http.createServer((req, res) => {
         res.setHeader("Content-Type", "text/css");
         return res.end(cssFile);
     }
-    
+
+    let reqBody = "";
+    req.on("data", (data) => {
+        reqBody += data;
+    });
+
+    req.on("end", () => {
+        console.log(reqBody, req.headers['content-type']);
+        if (req.headers['Content-Type']) {
+            // {tasks: 'lunch', time: '11:35'}
+        }
+        if (req.method === "POST" && req.url === "/tasks") {
+            console.log(req.body);
+            return;
+        }
+    });
+
+
     res.statusCode = 404;
     res.setHeader("Content-Type", "text/html");
     res.end('<h1>Can\'t find that page</h1>');
