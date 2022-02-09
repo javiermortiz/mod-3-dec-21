@@ -137,6 +137,7 @@ async function openingCrawlAsync(time) {
                             freedom to the galaxy....`);
     } catch (e) {
         console.log(e);
+        openingCrawlAsync(0);
     }
 }
 
