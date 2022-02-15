@@ -4,23 +4,26 @@ window.onload = () => {
         console.log(ball);
         ball.classList.add("red-ball");
         
-        const instructor = document.querySelector(".instructor");
-        console.log(instructor);
-        instructor.style.color = "red";
+        // const instructor = document.querySelector(".instructor");
+        // console.log(instructor);
+        // instructor.style.backgroundColor = "red";
 
-        // const instructors = document.querySelectorAll(".instructor");
-        // console.log(instructors);
-        // instructors.forEach(instructor => {
-        //     instructor.style.color = "red";
-        // });
+        const instructors = document.querySelectorAll(".instructor");
+        console.log(instructors);
+        console.log(document.body.children);
+        instructors.forEach(instructor => {
+            instructor.style.color = "red";
+        });
 
-        // const playground = document.getElementById("playground");
-        // playground.innerHTML = `
-        //     <h2 class='red'>Hope you enjoyed the demo!</h2>
-        //     <img 
-        //         src='https://p4.wallpaperbetter.com/wallpaper/70/625/78/animal-baby-cute-dog-wallpaper-preview.jpg'
-        //     >
-        // `;
+        debugger;
+        const playground = document.getElementById("playground");
+        const title = "Hope you enjoyed the demo!";
+        playground.innerHTML = `
+            <h2 class='red'>${title}</h2>
+            <img 
+                src='https://p4.wallpaperbetter.com/wallpaper/70/625/78/animal-baby-cute-dog-wallpaper-preview.jpg'
+            >
+        `;
 
         // const h2 = document.createElement('h2');
         // const title = document.createTextNode('Hope you enjoyed the demo!')
