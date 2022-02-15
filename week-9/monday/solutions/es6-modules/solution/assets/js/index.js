@@ -1,5 +1,5 @@
 //!!START SILENT
-import Game from './game.js';
+import { Game } from './game.js';
 
 //!!END
 window.onload = () => {

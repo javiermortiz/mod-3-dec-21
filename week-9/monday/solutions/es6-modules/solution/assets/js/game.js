@@ -1,10 +1,10 @@
 //!!START SILENT
-import { getIndex } from './utilities.js';
-import { mrPotatoHeadQuotes } from './quotes/mrPotatoHead.js';
+import getIndex from './utilities.js';
+import { mrPotatoHeadQuotes, hello } from './quotes/mrPotatoHead.js';
 import mrsPotatoHeadQuotes from './quotes/mrsPotatoHead.js';
 
 //!!END
-class Game {
+export class Game {
 
   start() {
 
@@ -13,6 +13,7 @@ class Game {
       const messageContainer = document.getElementById('message');
       if (index === 1) {
         messageContainer.innerText = mrPotatoHeadQuotes['hello'];
+        console.log(hello);
       } else {
         messageContainer.innerText = mrsPotatoHeadQuotes['hello'];
       }
@@ -46,5 +47,4 @@ class Game {
 }
 
 //!!START SILENT
-export default Game;
 //!!END
