@@ -8,12 +8,34 @@ add.addEventListener("click", async () => {
         const data = await res.json();
 
         // URL of new dog image
-        const url = data.message;
+        // const url = data.message;
+        // const breed = url.split('/')[4];
+
+        // const newLi = `
+        //     <li>
+        //         <figure>
+        //             <img src=${url}>
+        //             <figcaption>${breed}</figcaption>
+        //         </figure>
+        //     </li>
+        // `
+
+        // const ul = document.querySelector('.gallery > ul')
+        // ul.innerHTML = newLi + ul.innerHTML;
 
         // Get breed (Hint: Parse from URL)
         const breed = url.split('/')[4];
 
         // Create element to inject 
+        /*
+        <ul>
+        <li><figure><img src='http'><figcaption>hound</figcaption></figure></li>
+        </ul>
+        
+        
+        
+        
+        */
         const newDog = document.createElement("li");
 
         const newFigure = document.createElement("figure");
@@ -32,6 +54,7 @@ add.addEventListener("click", async () => {
         // Inject element into correct location
         const ul = document.getElementsByTagName("ul")[0];
         ul.appendChild(newDog);
+
 
     } catch (e) {
         console.log("Couldn't fetch dog :(")
