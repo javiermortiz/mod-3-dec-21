@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", e => {
     const modal = document.getElementById("modal");
     const modalContent = document.getElementById("modal-content");
 
-    document.getElementById("click-me").addEventListener("click", e => {
-        console.log(e.type);
+    document.getElementById("click-me").addEventListener("click", event => {
+        console.log(event.type);
         modal.style.display = "flex";
         modalContent.style.display = "flex";
         modalContent.innerHTML = `
@@ -21,32 +21,33 @@ document.addEventListener("DOMContentLoaded", e => {
         `;
 
         // phase 4
-        // const form = document.getElementById("my-form");
-        // const errors = document.getElementById("errors");
-        // form.addEventListener("input", e => {
-        //     console.log(e.target);
-        //     if (e.target.name === "email") {
-        //         const inputVal = e.target.value;
-        //         if (!inputVal.includes('@')) {
-        //             errors.innerText = "Email must include '@'";
-        //         } else {
-        //             errors.innerText = "";
-        //         }
-        //     }
-        // });
+        const form = document.getElementById("my-form");
+        const errors = document.getElementById("errors");
+        form.addEventListener("input", e => {
+            console.log(e.target);
+            if (e.target.name === "email") {
+                const inputVal = e.target.value;
+                if (!inputVal.includes('@')) {
+                    errors.innerText = "Email must include '@'";
+                } else {
+                    errors.innerText = "";
+                }
+            }
+        });
     });
 
     // phase 2
-    // modal.addEventListener("click", e => {
-    //     console.log(e.target);
-    //     console.log(e.currentTarget);
-    //     modal.style.display = "none";
-    // });
+    modalContent.addEventListener("click", e => {
+        e.stopPropagation();
+    });
+
+    modal.addEventListener("click", e => {
+        console.log(e.target);
+        console.log(e.currentTarget);
+        modal.style.display = "none";
+    });
 
     // phase 3
-    // modalContent.addEventListener("click", e => {
-    //     e.stopPropagation();
-    // });
 
 
 });
