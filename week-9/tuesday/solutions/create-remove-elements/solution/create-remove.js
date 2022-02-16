@@ -8,7 +8,7 @@ add.addEventListener("click", async () => {
         const data = await res.json();
 
         // URL of new dog image
-        // const url = data.message;
+        const url = data.message;
         // const breed = url.split('/')[4];
 
         // const newLi = `
