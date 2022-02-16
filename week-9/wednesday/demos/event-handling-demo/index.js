@@ -41,13 +41,14 @@ document.addEventListener("DOMContentLoaded", e => {
         e.stopPropagation();
     });
 
-    modal.addEventListener("click", e => {
+    const changeDisplay = e => {
         console.log(e.target);
         console.log(e.currentTarget);
         modal.style.display = "none";
-    });
+    }
 
+    modal.addEventListener("click", changeDisplay);
+
+    // modal.removeEventListener("click", changeDisplay);
     // phase 3
-
-
 });
