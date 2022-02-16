@@ -20,11 +20,15 @@ window.addEventListener("DOMContentLoaded", () => {
     const ul = document.querySelector("#part-2 > ul");
     const addLi = e => {
         const input = document.querySelector("#list-add")
-        const value = input.value;
-        const newLi = document.createElement("li");
+        const value = input.value; 
+        const newLi = document.createElement("li"); 
         newLi.innerText = value;
-        ul.appendChild(newLi);
+        ul.appendChild(newLi); 
         input.value = '';
+        // ul.innerHTML += `
+        //     <li>${value}</li>
+        // `;
+        // input.value = "";
     };
 
     addItem.addEventListener("click", addLi);
