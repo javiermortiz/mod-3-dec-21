@@ -7,15 +7,13 @@ window.addEventListener("DOMContentLoaded", event => {
             const type = document.getElementById("type");
 
             const li = document.createElement("li");
+            // <li data-type="drinks">Water</li>
             li.innerText = name.value;
             li.dataset.type = type.value;
             console.log(li);
             // li.setAttribute("data-type", type.value);
             shoppingList.appendChild(li);
 
-            if (li.dataset.type === 'drinks') {
-                li.style.backgroundColor = 'red';
-            }
             name.value = "";
             type.value = "drinks";
         })
