@@ -1,18 +1,42 @@
 /* ================================ PHASE 1 ================================ */
+//!!START SILENT
+// For getting value of just one cookie
+function getCookieValue(cookieName) {
+    const allCookies = document.cookie;
+    let cookieValue = '';
+
+    // split up cookie to find just the part that's needed
+    const matchingCookie = allCookies
+        .split('; ')
+        .find(c => c.startsWith(`${cookieName}=`));
+
+    // the value is just the part after the equal sign
+    if (matchingCookie) {
+        cookieValue = matchingCookie.split('=')[1];
+    }
+
+    return cookieValue;
+}
+//!!END
 
 // For storing user's theme selection in the browser
 
 function storeTheme(themeName) {
     //!!START
-    localStorage.setItem('theme', themeName);
-    //!!\END
+    // Phase 1
+    // console.log(themeName);
+    // document.cookie = `theme=${themeName}`;
+    // Phase 2
+    document.cookie = `theme=${themeName}`;
+    //!!END
 }
 
 // For restoring theme, if selected by the user in the past
 
 function restoreTheme() {
     //!!START
-    const storedTheme = localStorage.getItem('theme');
+    const storedTheme = getCookieValue('theme');
+    // const storedTheme = document.cookie.split('=')[1];
     if (storedTheme) {
         setTheme(storedTheme);
     }
@@ -23,8 +47,8 @@ function restoreTheme() {
 
 function clearTheme() {
     //!!START
-    localStorage.removeItem('theme');
-    //!!\END
+    document.cookie = 'theme=; max-age=0';
+    //!!END
 }
 
 /* ================================ PHASE 2 ================================ */
@@ -32,21 +56,14 @@ function clearTheme() {
 // For storing user's display name
 function storeName(displayName) {
     //!!START
-    // Phase 1
-    // window.localStorage.setItem('displayName', displayName);
-    // Phase 3
-    window.sessionStorage.setItem('displayName', displayName);
+    document.cookie = `displayName=${displayName}`;
     //!!END
 }
 
 // For restoring user's display name, if set in the past
 function restoreName() {
     //!!START
-    // Phase 1
-    // const storedName = window.localStorage.getItem('displayName');
-    // Phase 3
-    const storedName = window.sessionStorage.getItem('displayName');
-    // Phase 1 (and 3)
+    const storedName = getCookieValue('displayName')
     if (storedName) {
         setInputValue('display-name', storedName);
     }
@@ -56,10 +73,7 @@ function restoreName() {
 // For clearing user's display name from browser storage
 function clearName() {
     //!!START
-    // Phase 1
-    // window.localStorage.removeItem('displayName');
-    // Phase 3
-    window.sessionStorage.removeItem('displayName');
+    document.cookie = `displayName=; max-age=0`;
     //!!END
 }
 
@@ -124,14 +138,9 @@ function setTheme(themeName) {
 
 function resetTheme() {
     // Remove selection styling from all buttons
-    // Bonus Phase
-    const storedTheme = window.localStorage.getItem('theme');
-    if (storedTheme) {
-        toggleButtonSelection(storedTheme, false);
-    }
-    // toggleButtonSelection('dragon', false);
-    // toggleButtonSelection('griffin', false);
-    // toggleButtonSelection('wizard', false);
+    toggleButtonSelection('dragon', false);
+    toggleButtonSelection('griffin', false);
+    toggleButtonSelection('wizard', false);
 
     // Set default theme so header and footer are contrast colors
     document.documentElement.className = `theme-none`;
